@@ -3,8 +3,8 @@ from django.http.response import JsonResponse, HttpResponseNotFound
 from django.contrib.auth.models import User, Group, Permission
 from django.contrib.auth import authenticate, login
 from rest_framework import viewsets, permissions
-from .serializer import UserSerializer, GroupSerializer, Printer3dSerializer
-from .models import Printer3d
+from .serializer import UserSerializer, GroupSerializer, Printer3dSerializer, LocationSerializer, Filament3dSerializer
+from .models import Printer3d, Location, Filament3d
 
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,4 +20,20 @@ class GroupViewSet(viewsets.ModelViewSet):
 class Printer3dViewSet(viewsets.ModelViewSet):
   queryset = Printer3d.objects.all()
   serializer_class = Printer3dSerializer
+  permission_classes = [permissions.IsAuthenticated]
+
+  def perform_create(self, serializer):
+    serializer.save(user=self.request.user)
+
+class LocationViewSet(viewsets.ModelViewSet):
+  queryset = Location.objects.all()
+  serializer_class = LocationSerializer
+  permission_classes = [permissions.IsAuthenticated]
+
+  def perform_create(self, serializer):
+    serializer.save(user=self.request.user)
+
+class Filament3dViewSet(viewsets.ModelViewSet):
+  queryset = Filament3d.objects.all()
+  serializer_class = Filament3dSerializer
   permission_classes = [permissions.IsAuthenticated]

@@ -8,11 +8,17 @@ from rest_framework.authtoken.models import Token
 # Create your models here.
 
 class BaseModel(models.Model):
-  createdAt = models.DateTimeField(null=False, blank=False)
-  updatedAt = models.DateTimeField(null=False, blank=False)
+  createdAt = models.DateTimeField(null=False, blank=False, auto_now_add=True)
+  updatedAt = models.DateTimeField(null=False, blank=False, auto_now=True)
   deletedAt = models.DateTimeField(null=True, blank=True)
+
   class Meta:
     abstract = True
+  
+  def delete(self):
+    self.deletedAt = timezone.now()
+    self.save()
+
 
 class UserManager(AbstractUserManager):
   pass
