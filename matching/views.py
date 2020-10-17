@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from django.http.response import JsonResponse, HttpResponseNotFound
-from django.contrib.auth.models import User, Group, Permission
+from django.contrib.auth.models import Group, Permission
 from django.contrib.auth import authenticate, login
 from rest_framework import viewsets, permissions
 from .serializer import UserSerializer, GroupSerializer, Printer3dSerializer, LocationSerializer, Filament3dSerializer, Object3dSerializer
-from .models import Printer3d, Location, Filament3d, Object3d
+from .models import Printer3d, Location, Filament3d, Object3d, CustomUser
 
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
-  queryset = User.objects.all().order_by('-date_joined')
+  queryset = CustomUser.objects.all().order_by('-date_joined')
   serializer_class = UserSerializer
   permission_classes = [permissions.IsAuthenticated]
 
