@@ -12,13 +12,7 @@
 
         data() {
             return {
-                form_data: {
-                    name: "",
-                    max_width: null,
-                    max_height: null,
-                    max_depth: null,
-                    user: null
-                }
+                form_data: []
             }
         },
         
@@ -28,7 +22,7 @@
 
                     const requestOptions = {
                     method: "GET",
-                    headers: { "Content-Type": "application/json" },
+                        headers: { "Authorization": "Token " + this.$store.state.setUserKey },
                 }
 
 
