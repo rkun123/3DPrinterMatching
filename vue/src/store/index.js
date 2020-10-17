@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -13,3 +14,19 @@ export default new Vuex.Store({
   modules: {
   }
 })
+=======
+import Vue from "vue";
+import Vuex from "vuex";
+
+Vue.use(Vuex);
+
+const state = {
+    setUserKey: ""
+};
+
+const store = new Vuex.Store({
+    state
+});
+
+export default store;
+>>>>>>> Stashed changes
