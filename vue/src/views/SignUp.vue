@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <form>
       <p>username:</p>
@@ -30,3 +31,11 @@ export default {
 
 <style scoped>
 </style>
+=======
+  <div>SignUp</div>
+</template>
+
+<script>
+export default {};
+</script>
+>>>>>>> f092e2f... [add] page router
