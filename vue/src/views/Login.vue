@@ -1,73 +1,55 @@
 <template>
-<<<<<<< HEAD
-  <div>
-    LoginPage<br />
-    <p>username</p>
-    <input v-model="form_data.username" placeholder="edit me" />
-    <p>e-mail</p>
-    <input v-model="form_data.email" placeholder="edit me" />
-    <p>password</p>
-    <input v-model="form_data.password" type="password" placeholder="edit me" />
-    <br />
-    <button v-on:click="post">Greet</button>
-  </div>
+    <div>
+        LoginPage<br />
+        <input v-model="form_data.username" placeholder="edit me">
+        <p>Message is: {{ form_data.username }}</p>
+        <input v-model="form_data.email" placeholder="edit me">
+        <p>Message is: {{ form_data.email }}</p>
+        <input v-model="form_data.password" type="password" placeholder="edit me">
+        <p>Message is: {{ form_data.password }}</p>
+
+
+        <button v-on:click="post">Greet</button>
+    </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      form_data: {
-        username: "",
-        email: "",
-        password: "",
-      },
-      key: "",
-    };
-  },
-  methods: {
-    post: async function () {
-      const payload = JSON.stringify(this.form_data);
+    export default {
 
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: payload,
-      };
+        data() {
+            return {
+                form_data: {
+                    username: '',
+                    email: '',
+                    password: ''
+                }
+            }
+        },
+        methods: {
+            post: async function () {
+                // メソッド内の `this` は、 Vue インスタンスを参照します
+                alert('Hello ' + '!')
 
-      await fetch("http://127.0.0.1:8000/rest-auth/login/", requestOptions)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data.key);
-          this.key = data.key;
-          this.$store.dispatch("setUserKey", { key: this.key });
-        })
-        .then(() => {
-          this.$router.push("/main");
-        })
-        .catch(() => {
-          alert("繝ｭ繧ｰ繧､繝ｳ縺ｫ螟ｱ謨励＠縺ｾ縺励◆");
-        });
+                const payload = JSON.stringify(this.form_data)
 
-      const requestUser = {
-        method: "GET",
-        headers: { Authorization: "Token " + this.key },
-      };
+                const requestOptions = {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: payload
+                }
 
-      await fetch("http://127.0.0.1:8000/api/v1/users/", requestUser)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-        });
-    },
-  },
-};
+                await fetch('http://127.0.0.1:8000/rest-auth/login/', requestOptions)
+                    .then(response => response.json())
+                    .then(requestOptions => console.log(requestOptions))
+
+               
+
+
+            }
+        },
+          
+       
+    }
+
+    
 </script>  
-=======
-  <div>LoginPage</div>
-</template>
-
-<script>
-export default {};
-</script>
->>>>>>> 6539f4e... [add] page router
