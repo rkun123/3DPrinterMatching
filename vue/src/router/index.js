@@ -6,6 +6,7 @@ import SignUp from '../views/SignUp.vue'
 import Main from '../views/UserMainpage.vue'
 import AddPrinter from '../views/AddPrinter.vue'
 import ListPrinter from '../views/ListPrinter.vue'
+import AddSTL from '../views/AddSTL.vue'
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,11 @@ const routes = [{
     path: '/ListPrinter',
     name: 'ListPrinter',
     component: ListPrinter
+  },
+  {
+    path: '/addstl',
+    name: 'AddSTL',
+    component: AddSTL
   }
 
 ]
