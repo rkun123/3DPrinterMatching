@@ -12,7 +12,17 @@
 
         data() {
             return {
+<<<<<<< HEAD
                 form_data: []
+=======
+                form_data: {
+                    name: "",
+                    max_width: null,
+                    max_height: null,
+                    max_depth: null,
+                    user: null
+                }
+>>>>>>> fa23ae6... [fix]403解消
             }
         },
         
@@ -22,7 +32,11 @@
 
                     const requestOptions = {
                     method: "GET",
+<<<<<<< HEAD
                         headers: { "Authorization": "Token " + this.$store.state.UserKey },
+=======
+                    headers: { "Content-Type": "application/json" },
+>>>>>>> fa23ae6... [fix]403解消
                 }
 
 
