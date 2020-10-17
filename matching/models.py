@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import (User as BaseUser, UserManager as AbstractUserManager, Group as AbstractGroup, _user_has_perm)
+from django.contrib.auth.models import (User, UserManager as AbstractUserManager, Group as AbstractGroup, _user_has_perm)
 from django.utils import timezone
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -21,9 +21,6 @@ class BaseModel(models.Model):
 
 
 class UserManager(AbstractUserManager):
-  pass
-
-class User(BaseUser):
   pass
 
 @receiver(post_save, sender=User)
