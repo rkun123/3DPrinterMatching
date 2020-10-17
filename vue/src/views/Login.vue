@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     LoginPage<br />
     <p>username</p>
@@ -62,3 +63,11 @@ export default {
   },
 };
 </script>  
+=======
+  <div>LoginPage</div>
+</template>
+
+<script>
+export default {};
+</script>
+>>>>>>> 6539f4e... [add] page router
