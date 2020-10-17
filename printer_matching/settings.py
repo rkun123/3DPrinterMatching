@@ -122,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 SITE_ID=1
 
 CORS_ORIGIN_WHITELIST = [
-    'localhost:8080',
+    'http://localhost:8080',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
