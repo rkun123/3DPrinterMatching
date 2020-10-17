@@ -11,11 +11,14 @@
       <input v-model="form_data.password2" type="password" />
     </form>
 
+    <GoogleMap @parentMethod="updatePosition" />
     <button v-on:click="post">Greet</button>
   </div>
 </template>
 
 <script>
+import GoogleMap from "../components/GoogleMap.vue";
+
 export default {
   data() {
     return {
@@ -24,14 +27,16 @@ export default {
         email: "",
         password1: "",
         password2: "",
+        lat: 0,
+        lng: 0,
       },
     };
   },
+  components: {
+    GoogleMap,
+  },
   methods: {
-    post: async function() {
-      // メソッド内の `this` は、 Vue インスタンスを参照します
-      alert("Hello " + "!");
-
+    post: async function () {
       const payload = JSON.stringify(this.form_data);
 
       const requestOptions = {
@@ -46,6 +51,10 @@ export default {
       )
         .then((response) => response.json())
         .then((requestOptions) => console.log(requestOptions));
+    },
+    updatePosition(Position) {
+      this.lat = Position.lat;
+      this.lng = Position.lng;
     },
   },
 };
