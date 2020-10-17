@@ -49,7 +49,8 @@ class Object3dViewSet(viewsets.ModelViewSet):
   def printables(self, request, pk=None):
     obj = Object3d.objects.get(pk=pk)
     printers = Printer3d.objects.all()
-    printables_printers = []
+    printable_printers = []
+    
     for printer in printers.iterator():
       if printer.printable(obj):
         printer_dict = {}
@@ -60,9 +61,10 @@ class Object3dViewSet(viewsets.ModelViewSet):
         printer_dict['lat'] = printer.lat
         printer_dict['lng'] = printer.lng
         printer_dict['distance'] = printer.distance(obj)
-        printables_printers.append(printer_dict)
+        printable_printers.append(printer_dict)
 
-    serialize = PrintablesSerializer(data=printables_printers, many=True)
+    sorted_printers = sorted(printable_printers, key= lambda printer: printer['distance'])
+    serialize = PrintablesSerializer(data=sorted_printers, many=True)
 
     if serialize.is_valid():
       return Response(serialize.data)
