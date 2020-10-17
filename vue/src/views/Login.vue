@@ -50,14 +50,14 @@ export default {
 
       const requestUser = {
         method: "GET",
-        headers: { Authorization: "Token " + this.key },
+        headers: { "Authorization": "Token " + this.key },
       };
 
-      await fetch("http://127.0.0.1:8000/api/v1/users/", requestUser)
+      await fetch("http://127.0.0.1:8000/rest-auth/user/", requestUser)
         .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-        });
+          .then((data) => {
+              console.log(data);
+          });
     },
   },
 };
