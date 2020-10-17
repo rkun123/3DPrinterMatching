@@ -10,6 +10,8 @@ pylint-django = "*"
 [packages]
 djangorestframework = "*"
 pylint = "*"
+django-rest-auth = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.8"
