@@ -1,12 +1,12 @@
-from django.contrib.auth.models import User, Group
-from .models import Printer3d, Location, Filament3d, Object3d
+from django.contrib.auth.models import Group
+from .models import Printer3d, Location, Filament3d, Object3d, CustomUser
 from rest_framework import serializers
 from rest_framework.decorators import action
 
 class UserSerializer(serializers.ModelSerializer):
   class Meta:
-    model = User
-    fields = ['username', 'email', 'groups', 'last_login']
+    model = CustomUser
+    fields = ['username', 'email', 'groups', 'last_login', 'lat', 'lng']
 
 class GroupSerializer(serializers.ModelSerializer):
   class Meta:
