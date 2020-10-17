@@ -9,10 +9,16 @@
     <input v-model="form_data.password" type="password" placeholder="edit me" />
     <br />
     <button v-on:click="post">Greet</button>
+
+
+    <p>{{key}}</p>
   </div>
 </template>
 
 <script>
+
+
+
 export default {
   data() {
     return {
@@ -39,10 +45,10 @@ export default {
         .then((data) => {
           console.log(data.key);
           this.key = data.key;
-          this.$store.dispatch("setUserKey", { key: this.key });
+            this.$store.state.setUserKey = this.key;
         })
         .then(() => {
-          this.$router.push("/main");
+          //this.$router.push("/main");
         })
         .catch(() => {
           alert("ログインに失敗しました");
@@ -55,9 +61,18 @@ export default {
 
       await fetch("http://127.0.0.1:8000/rest-auth/user/", requestUser)
         .then((response) => response.json())
+<<<<<<< Updated upstream
         .then((data) => {
           console.log(data);
         });
+=======
+          .then((data) => {
+              console.log(data);
+              this.key = data.pk;
+          });
+
+          
+>>>>>>> Stashed changes
     },
   },
 };
