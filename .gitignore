@@ -23,6 +23,7 @@ wheels/
 share/python-wheels/
 *.egg-info/
 .installed.cfg
+.vs
 *.egg
 MANIFEST
 
@@ -138,3 +139,4 @@ dmypy.json
 cython_debug/
 
 /.vscode
+/media

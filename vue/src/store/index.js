@@ -5,11 +5,22 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    key: ""
   },
   mutations: {
+    setKey(state, payload) {
+      this.key = payload;
+      console.log(this.key)
+    }
   },
   actions: {
+    setUserKey({
+      commit,
+    }, {
+      key
+    }) {
+      commit('setKey', key)
+    },
   },
-  modules: {
-  }
+  modules: {}
 })
