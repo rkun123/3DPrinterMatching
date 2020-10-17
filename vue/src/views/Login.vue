@@ -21,6 +21,7 @@ export default {
         email: "",
         password: "",
       },
+      key: "",
     };
   },
   methods: {
@@ -37,13 +38,25 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           console.log(data.key);
-          this.$store.dispatch("setUserKey", { key: data.key });
+          this.key = data.key;
+          this.$store.dispatch("setUserKey", { key: this.key });
         })
         .then(() => {
           this.$router.push("/main");
         })
         .catch(() => {
           alert("ログインに失敗しました");
+        });
+
+      const requestUser = {
+        method: "GET",
+        headers: { Authorization: "Token " + this.key },
+      };
+
+      await fetch("http://127.0.0.1:8000/api/v1/users/", requestUser)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
         });
     },
   },
