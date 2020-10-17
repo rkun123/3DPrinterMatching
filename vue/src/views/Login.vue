@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div>
         LoginPage<br />
         <input v-model="form_data.username" placeholder="edit me">
@@ -53,3 +54,11 @@
 
     
 </script>  
+=======
+  <div>LoginPage</div>
+</template>
+
+<script>
+export default {};
+</script>
+>>>>>>> 8a600d4... [add] page router
