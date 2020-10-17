@@ -61,18 +61,13 @@ export default {
 
       await fetch("http://127.0.0.1:8000/rest-auth/user/", requestUser)
         .then((response) => response.json())
-<<<<<<< Updated upstream
-        .then((data) => {
-          console.log(data);
-        });
-=======
+
           .then((data) => {
               console.log(data);
               this.key = data.pk;
           });
 
-          
->>>>>>> Stashed changes
+
     },
   },
 };
