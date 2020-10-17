@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="start">
     <img src="../assets/logo.png" />
     <h1>3DPrinter Matching</h1>
@@ -30,3 +31,11 @@ button {
   padding-right: 15px;
 }
 </style>
+=======
+  <div>Start Page</div>
+</template>
+
+<script>
+export default {};
+</script>
+>>>>>>> f092e2f... [add] page router
