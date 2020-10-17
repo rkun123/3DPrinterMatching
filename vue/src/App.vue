@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-      <div id="nav">
-          <router-link to="/">Start</router-link>|
-          <router-link to="/login">Login</router-link>|
-          <router-link to="/signup">SignUp</router-link>|
-          <router-link to="/main">Main</router-link>|
-          <router-link to="/AddPrinter">AddPrinter</router-link>
-          |
-          <router-link to="/ListPrinter">ListPrinter</router-link>
-      </div>
+    <div id="nav">
+      <router-link to="/">Start</router-link>|
+      <router-link to="/login">Login</router-link>|
+      <router-link to="/signup">SignUp</router-link>|
+      <router-link to="/main">Main</router-link>|
+      <router-link to="/AddPrinter">AddPrinter</router-link>|
+      <router-link to="/ListPrinter">ListPrinter</router-link>|
+      <router-link to="/addstl">AddSTL</router-link>
+    </div>
     <router-view />
   </div>
 </template>

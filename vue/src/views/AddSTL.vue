@@ -6,7 +6,6 @@
       <p>e-mail:</p>
       <input v-model="form_data.stl" autocomplete="email" />
     </form>
-
     <button v-on:click="post">Greet</button>
   </div>
 </template>
@@ -23,7 +22,7 @@ export default {
     };
   },
   methods: {
-    post: async function() {
+    post: async function () {
       const payload = JSON.stringify(this.form_data);
 
       const requestOptions = {
