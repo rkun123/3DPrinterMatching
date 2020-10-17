@@ -5,7 +5,9 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const state = {
-    setUserKey: ""
+    UserKey:'',
+    UserState: []
+
 };
 
 const store = new Vuex.Store({
