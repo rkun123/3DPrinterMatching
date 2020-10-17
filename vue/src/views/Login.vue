@@ -44,8 +44,8 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           console.log(data.key);
-          this.key = data.key;
-            this.$store.state.setUserKey = this.key;
+            this.key = data.key;
+            this.$store.state.UserKey = data.key;
         })
         .then(() => {
           //this.$router.push("/main");
@@ -63,8 +63,11 @@ export default {
         .then((response) => response.json())
 
           .then((data) => {
-              console.log(data);
+
               this.key = data.pk;
+              this.$store.state.UserState = data;
+              console.log(this.$store.state.UserState);
+              console.log(this.$store.state.UserState.pk);
           });
 
 
