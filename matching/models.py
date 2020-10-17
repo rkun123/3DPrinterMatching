@@ -54,4 +54,4 @@ class Filament3d(ForeignedUserModel):
   
 class Object3d(ForeignedUserModel):
   name = models.CharField(max_length=256, null=False, blank=False, default='')
-  stl = models.BinaryField(null=False, blank=False, default=b'\x01')
+  stl = models.FileField(upload_to='uploads/', null=False, blank=False)

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -122,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 SITE_ID=1
 
 CORS_ORIGIN_WHITELIST = [
-    'localhost:8080',
+    'http://localhost:8080',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -149,3 +150,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'vue/dist/'
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

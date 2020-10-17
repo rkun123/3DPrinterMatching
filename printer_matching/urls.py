@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
 from rest_framework import routers
-from matching.views import UserViewSet, GroupViewSet, Printer3dViewSet, LocationViewSet, Filament3dViewSet
+from . import settings
+from matching.views import UserViewSet, GroupViewSet, Printer3dViewSet, LocationViewSet, Filament3dViewSet, Object3dViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -24,6 +26,7 @@ router.register(r'groups', GroupViewSet)
 router.register(r'printer3d', Printer3dViewSet)
 router.register(r'location', LocationViewSet)
 router.register(r'filament3d', Filament3dViewSet)
+router.register(r'object3d', Object3dViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,3 +34,7 @@ urlpatterns = [
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
 ]
+ 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
