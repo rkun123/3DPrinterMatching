@@ -4,6 +4,8 @@ import Start from '../views/Start.vue'
 import Login from '../views/Login.vue'
 import SignUp from '../views/SignUp.vue'
 import Main from '../views/UserMainpage.vue'
+import AddPrinter from '../views/AddPrinter.vue'
+import ListPrinter from '../views/ListPrinter.vue'
 
 Vue.use(VueRouter)
 
@@ -26,6 +28,16 @@ const routes = [{
     path: '/main',
     name: 'Main',
     component: Main
+  },
+  {
+    path: '/AddPrinter',
+    name: 'AddPrinter',
+    component: AddPrinter
+  },
+  {
+    path: '/ListPrinter',
+    name: 'ListPrinter',
+    component: ListPrinter
   }
 
 ]

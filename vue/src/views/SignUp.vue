@@ -28,8 +28,9 @@ export default {
     };
   },
   methods: {
-    post: async function () {
+    post: async function() {
       // メソッド内の `this` は、 Vue インスタンスを参照します
+      alert("Hello " + "!");
 
       const payload = JSON.stringify(this.form_data);
 
@@ -44,17 +45,10 @@ export default {
         requestOptions
       )
         .then((response) => response.json())
-        .then(() => {
-          this.$router.push("/");
-        })
-        .catch(() => {
-          alert("登録に失敗しました");
-          this.$router.push("/");
-        });
+        .then((requestOptions) => console.log(requestOptions));
     },
   },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

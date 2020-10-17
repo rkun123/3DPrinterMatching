@@ -25,7 +25,7 @@ export default {
     };
   },
   methods: {
-    post: async function () {
+    post: async function() {
       const payload = JSON.stringify(this.form_data);
 
       const requestOptions = {
@@ -53,7 +53,7 @@ export default {
         headers: { Authorization: "Token " + this.key },
       };
 
-      await fetch("http://127.0.0.1:8000/api/v1/users/", requestUser)
+      await fetch("http://127.0.0.1:8000/rest-auth/user/", requestUser)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -61,4 +61,4 @@ export default {
     },
   },
 };
-</script>  
+</script>
