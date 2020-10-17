@@ -1,7 +1,6 @@
 <template>
     <div>
         <form>
-<<<<<<< HEAD
             <p>printername:</p>
             <input v-model="form_data.name" />
             <p>maxwidth:</p>
@@ -14,20 +13,6 @@
 
         <button v-on:click="post">submit</button>
         {{form_data.user}}
-=======
-            <p>username:</p>
-            <input v-model="form_data.name" />
-            <p>e-mail:</p>
-            <input v-model="form_data.max_width" autocomplete="email" />
-            <p>password:</p>
-            <input v-model="form_data.max_height" type="password" />
-            <p>Ç‡Ç§àÍìxÉpÉXÉèÅ[ÉhÇì¸óÕÇµÇƒÇ≠ÇæÇ≥Ç¢</p>
-            <input v-model="form_data.max_depth" type="password" />
-        </form>
-
-        <button v-on:click="post">Greet</button>
-
->>>>>>> fa23ae6... [fix]403Ëß£Ê∂à
     </div>
 </template>
 
@@ -41,11 +26,7 @@
                     max_width: null,
                     max_height: null,
                     max_depth: null,
-<<<<<<< HEAD
                     user: this.$store.state.UserState.pk
-=======
-                    user: null
->>>>>>> fa23ae6... [fix]403Ëß£Ê∂à
                 }
             }
         },
@@ -58,20 +39,12 @@
 
                 const requestOptions = {
                     method: "POST",
-<<<<<<< HEAD
                     headers: { "Content-Type": "application/json", "Authorization": "Token " + this.$store.state.UserKey },
-=======
-                    headers: { "Content-Type": "application/json", "Authorization": this.$store.getter.getter.getKey },
->>>>>>> fa23ae6... [fix]403Ëß£Ê∂à
                     body: payload
 
                 }
 
-<<<<<<< HEAD
                 await fetch('http://127.0.0.1:8000/api/v1/printer3d/', requestOptions)
-=======
-                await fetch('http://127.0.0.1:8000/rest-auth/registration/', requestOptions)
->>>>>>> fa23ae6... [fix]403Ëß£Ê∂à
                     .then(response => response.json())
                     .then(requestOptions => console.log(requestOptions))
 
