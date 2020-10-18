@@ -5,6 +5,8 @@ from django.utils import timezone
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
+from geopy.distance import geodesic
+from .utils.stl import canPrint
 
 # Create your models here.
 
@@ -115,6 +117,25 @@ class Printer3d(ForeignedUserModel):
   max_width = models.FloatField(null=False, blank=False, default=0.0) #mm
   max_height = models.FloatField(null=False, blank=False, default=0.0) #mm
   max_depth = models.FloatField(null=False, blank=False, default=0.0) #mm
+  lat = models.FloatField(null=True, blank=True, default=0.0)
+  lng = models.FloatField(null=True, blank=True, default=0.0)
+
+  def printable(self, object3d):
+    return canPrint([ self.max_width, self.max_height, self.max_depth ], object3d.stl.path)
+  
+  def distance(self, object3d):
+    lat1 = self.lat
+    lng1 = self.lng
+    if self.lat is None or self.lng is None:
+      lat1 = self.user.lat
+      lng1 = self.user.lng
+    
+    lat2 = object3d.user.lat
+    lng2 = object3d.user.lng
+
+    meter = geodesic((lat1, lng1), (lat2, lng2)).m
+    return meter
+      
 
 class Filament3d(ForeignedUserModel):
   name = models.CharField(max_length=256, null=False, blank=False, default='')

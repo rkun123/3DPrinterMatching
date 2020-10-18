@@ -7,7 +7,8 @@
       <router-link to="/main">Main</router-link>|
       <router-link to="/AddPrinter">AddPrinter</router-link>|
       <router-link to="/ListPrinter">ListPrinter</router-link>|
-      <router-link to="/addstl">AddSTL</router-link>
+      <router-link to="/addstl">AddSTL</router-link>|
+      <router-link to="/directmessage">DirectMessage</router-link>
     </div>
     <router-view />
   </div>

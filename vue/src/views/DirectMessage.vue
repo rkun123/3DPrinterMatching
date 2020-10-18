@@ -22,7 +22,9 @@ export default {
     fetch("http://127.0.0.1:8000/api/v1/printer3d/", requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        for (var item in data) console.log(item + ":" + data[item]["user"]);
+        for (var item in data) {
+          console.log(item + ":" + data[item]["user"]["id"]);
+        }
       });
   },
 };
