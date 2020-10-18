@@ -145,3 +145,14 @@ class Filament3d(ForeignedUserModel):
 class Object3d(ForeignedUserModel):
   name = models.CharField(max_length=256, null=False, blank=False, default='')
   stl = models.FileField(upload_to='uploads/', null=False, blank=False)
+
+class Request(BaseModel):
+  object_owner = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=False, blank=False, default=1, related_name='object_owner_user_id')
+  printer_owner = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=False, blank=False, default=1, related_name='printer_owner_user_id')
+  object3d = models.ForeignKey(Object3d, on_delete=models.PROTECT, null=False, blank=False, default=0)
+  printer3d = models.ForeignKey(Printer3d, on_delete=models.PROTECT, null=False, blank=False, default=0)
+
+class DM(BaseModel):
+  sender = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=False, blank=False, default=0, related_name='sender_user_id')
+  receiver = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=False, blank=False, default=0, related_name='receiver_user_id')
+  text = models.TextField('text', null=False, blank=False)

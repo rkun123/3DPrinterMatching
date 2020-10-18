@@ -5,8 +5,8 @@ from django.contrib.auth import authenticate, login
 from rest_framework import viewsets, permissions, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from .serializer import UserSerializer, GroupSerializer, Printer3dSerializer, LocationSerializer, Filament3dSerializer, Object3dSerializer, PrintablesSerializer
-from .models import Printer3d, Location, Filament3d, Object3d, CustomUser
+from .serializer import UserSerializer, GroupSerializer, Printer3dSerializer, LocationSerializer, Filament3dSerializer, Object3dSerializer, PrintablesSerializer, RequestSerializer, DMSerializer
+from .models import Printer3d, Location, Filament3d, Object3d, CustomUser, Request, DM
 
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
@@ -50,7 +50,7 @@ class Object3dViewSet(viewsets.ModelViewSet):
     obj = Object3d.objects.get(pk=pk)
     printers = Printer3d.objects.all()
     printable_printers = []
-    
+
     for printer in printers.iterator():
       if printer.printable(obj):
         printer_dict = {}
@@ -72,3 +72,13 @@ class Object3dViewSet(viewsets.ModelViewSet):
       return JsonResponse({
         "error": serialize.errors
       })
+
+class RequestViewSet(viewsets.ModelViewSet):
+  queryset = Request.objects.all()
+  serializer_class = RequestSerializer
+  permission_classes = [permissions.IsAuthenticated]
+
+class DMViewSet(viewsets.ModelViewSet):
+  queryset = DM.objects.all()
+  serializer_class = DMSerializer
+  permission_classes = [permissions.IsAuthenticated]
