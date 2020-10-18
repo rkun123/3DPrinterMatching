@@ -54,5 +54,4 @@ class RequestSerializer(serializers.ModelSerializer):
 class DMSerializer(serializers.ModelSerializer):
   class Meta:
     model = DM
-    fields = ['id', 'sender', 'receiver', 'text']
-    depth = 1
+    fields = ['id', 'request', 'sender', 'receiver', 'text']

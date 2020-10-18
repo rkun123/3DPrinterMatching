@@ -87,6 +87,13 @@ class RequestViewSet(viewsets.ModelViewSet):
   queryset = Request.objects.all()
   serializer_class = RequestSerializer
   permission_classes = [permissions.IsAuthenticated]
+  @action(detail=True, permission_classes=[permissions.IsAuthenticated])
+  def directmessages(self, request, pk=None):
+    request = Request.objects.get(pk=pk)
+    directmessages = DM.objects.filter(request=request)
+    serialized = DMSerializer(instance=directmessages, many=True)
+
+    return Response(serialized.data)
 
 class DMViewSet(viewsets.ModelViewSet):
   queryset = DM.objects.all()

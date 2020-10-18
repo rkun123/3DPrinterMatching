@@ -156,3 +156,4 @@ class DM(BaseModel):
   sender = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=False, blank=False, default=0, related_name='sender_user_id')
   receiver = models.ForeignKey(CustomUser, on_delete=models.PROTECT, null=False, blank=False, default=0, related_name='receiver_user_id')
   text = models.TextField('text', null=False, blank=False)
+  request = models.ForeignKey(Request, on_delete=models.PROTECT, null=False, blank=False, default=1)
