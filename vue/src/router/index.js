@@ -6,8 +6,11 @@ import SignUp from '../views/SignUp.vue'
 import Main from '../views/UserMainpage.vue'
 import AddPrinter from '../views/AddPrinter.vue'
 import ListPrinter from '../views/ListPrinter.vue'
+import ListObject3ds from '../views/ListObject3ds.vue'
 import AddSTL from '../views/AddSTL.vue'
 import DirectMessage from '../views/DirectMessage.vue'
+import SelectPrinter from '../views/SelectPrinter.vue'
+import RequestDetail from '../views/RequestDetail.vue'
 
 Vue.use(VueRouter)
 
@@ -42,6 +45,11 @@ const routes = [{
     component: ListPrinter
   },
   {
+    path: '/ListObject3ds',
+    name: 'ListObject3ds',
+    component: ListObject3ds
+  },
+  {
     path: '/addstl',
     name: 'AddSTL',
     component: AddSTL
@@ -50,6 +58,16 @@ const routes = [{
     path: '/directmessage',
     name: 'DirectMessage',
     component: DirectMessage
+  },
+  {
+    path: '/object3ds/:id/selectPrinter',
+    name: 'SelectPrinter',
+    component: SelectPrinter
+  },
+  {
+    path: '/request/:id/',
+    name: 'RequestDetail',
+    component: RequestDetail
   }
 ]
 

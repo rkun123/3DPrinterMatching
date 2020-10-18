@@ -14,6 +14,15 @@ class UserViewSet(viewsets.ModelViewSet):
   serializer_class = UserSerializer
   permission_classes = [permissions.IsAuthenticated]
 
+  @action(detail=True, permission_classes=[permissions.IsAuthenticated])
+  def object3ds(self, request, pk=None):
+    user = CustomUser.objects.get(pk=pk)
+    objs = Object3d.objects.filter(user=user)
+    objs_serialized = Object3dSerializer(instance=objs, many=True)
+    return Response(objs_serialized.data)
+
+
+
 class GroupViewSet(viewsets.ModelViewSet):
   queryset = Group.objects.all()
   serializer_class = GroupSerializer
@@ -54,6 +63,7 @@ class Object3dViewSet(viewsets.ModelViewSet):
     for printer in printers.iterator():
       if printer.printable(obj):
         printer_dict = {}
+        printer_dict['id'] = printer.id
         printer_dict['name'] = printer.name
         printer_dict['max_width'] = printer.max_width
         printer_dict['max_height'] = printer.max_height

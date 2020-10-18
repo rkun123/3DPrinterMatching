@@ -64,10 +64,10 @@ export default {
 
           .then((data) => {
 
-              this.key = data.pk;
+              this.key = data.id;
               this.$store.state.UserState = data;
               console.log(this.$store.state.UserState);
-              console.log(this.$store.state.UserState.pk);
+              console.log(this.$store.state.UserState.id);
           });
 
 

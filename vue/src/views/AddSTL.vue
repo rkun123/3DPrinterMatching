@@ -4,13 +4,11 @@
       <p>name:</p>
       <input v-model="form_data.name" />
       <p>OMO</p>
-      <img :src="stl" alt="Avatar" class="image" />
       <label>
-        selectfile
-        <input type="file" @change="onFileChange" />
+        <input type="file" id="stlFileInput" @change="onFileChange" />
       </label>
     </form>
-    <button v-on:click="post">Greet</button>
+    <button v-on:click="post" class="sendButton">Send</button>
   </div>
 </template>
 
@@ -21,7 +19,7 @@ export default {
       form_data: {
         name: "",
         stl: "",
-        user: this.$store.state.UserState.pk,
+        user: this.$store.state.UserState.id,
       },
     };
   },
@@ -40,23 +38,37 @@ export default {
     },
 
     post: async function() {
-      const payload = JSON.stringify(this.form_data);
+      const fileInput = document.querySelector('#stlFileInput');
+      const formData = new FormData();
+      formData.append("name", this.form_data.name);
+      formData.append("stl", fileInput.files[0]);
+      formData.append("user", this.form_data.user);
+
+      console.log(this.form_data.user);
 
       const requestOptions = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Token " + this.$store.state.UserKey,
-        },
-        body: payload,
+          method: "POST",
+          headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: "Token " + this.$store.state.UserKey,
+          },
+          body: formData,
       };
 
-      await fetch("http://127.0.0.1:8000/api/v1/object3d/", requestOptions)
-        .then((response) => response.json())
-        .then((requestOptions) => console.log(requestOptions));
+      // ここで明示的に消してあげる
+      delete requestOptions.headers['Content-Type'];
+
+      // 設定したデータをPOST
+      fetch('http://127.0.0.1:8000/api/v1/object3d/', requestOptions);
+
     },
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.sendButton {
+  padding: 0.2rem;
+  margin-top: 1rem;
+}
+</style>
