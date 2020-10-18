@@ -7,6 +7,7 @@ import Main from '../views/UserMainpage.vue'
 import AddPrinter from '../views/AddPrinter.vue'
 import ListPrinter from '../views/ListPrinter.vue'
 import AddSTL from '../views/AddSTL.vue'
+import DirectMessage from '../views/DirectMessage.vue'
 
 Vue.use(VueRouter)
 
@@ -44,8 +45,12 @@ const routes = [{
     path: '/addstl',
     name: 'AddSTL',
     component: AddSTL
+  },
+  {
+    path: '/directmessage',
+    name: 'DirectMessage',
+    component: DirectMessage
   }
-
 ]
 
 const router = new VueRouter({
