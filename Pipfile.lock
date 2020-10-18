@@ -352,6 +352,13 @@
             "markers": "python_version >= '3.5'",
             "version": "==0.4.1"
         },
+        "stl": {
+            "hashes": [
+                "sha256:03a6b58ad52ecf16823b1cf1acf6ef382aa5c0fc1152379f464e284a4f81304b"
+            ],
+            "index": "pypi",
+            "version": "==0.0.3"
+        },
         "toml": {
             "hashes": [
                 "sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f",
