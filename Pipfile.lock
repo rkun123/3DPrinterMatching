@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b20e6f658efad5517ad30ea3f1edbadd760dccf672757a8615d9d9bcfe76fa45"
+            "sha256": "73eabfded8ff6b76671892f6ca7d59e1c41eebd3eeffeaabc28aeb83a79f594d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -257,6 +257,14 @@
             "index": "pypi",
             "version": "==1.19.2"
         },
+        "numpy-stl": {
+            "hashes": [
+                "sha256:10912d7749ab02b0ee2ee61fc04c38fa211fc9d00a9b73a7d1c2465c53c1abf5",
+                "sha256:73311455d6c66808efaa63bf41b04c6cb297442e5f7536c9eb3ce3f873888b07"
+            ],
+            "index": "pypi",
+            "version": "==2.12.0"
+        },
         "oauthlib": {
             "hashes": [
                 "sha256:bee41cc35fcca6e988463cacc3bcb8a96224f470ca547e697b604cc697b2f889",
@@ -290,6 +298,13 @@
             ],
             "index": "pypi",
             "version": "==2.6.0"
+        },
+        "python-utils": {
+            "hashes": [
+                "sha256:ebaadab29d0cb9dca0a82eab9c405f5be5125dbbff35b8f32cc433fa498dbaa7",
+                "sha256:f21fc09ff58ea5ebd1fd2e8ef7f63e39d456336900f26bdc9334a03a3f7d8089"
+            ],
+            "version": "==2.4.0"
         },
         "python3-openid": {
             "hashes": [

@@ -14,9 +14,7 @@ django-rest-auth = "*"
 django-allauth = "*"
 django-cors-headers = "*"
 geopy = "*"
-stl = "*"
 numpy = "*"
-mesh = "*"
 numpy-stl = "*"
 
 [requires]

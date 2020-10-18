@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from rest_framework import routers
 from . import settings
-from matching.views import UserViewSet, GroupViewSet, Printer3dViewSet, LocationViewSet, Filament3dViewSet, Object3dViewSet
+from matching.views import UserViewSet, GroupViewSet, Printer3dViewSet, LocationViewSet, Filament3dViewSet, Object3dViewSet, RequestViewSet, DMViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -27,6 +27,8 @@ router.register(r'printer3d', Printer3dViewSet)
 router.register(r'location', LocationViewSet)
 router.register(r'filament3d', Filament3dViewSet)
 router.register(r'object3d', Object3dViewSet)
+router.register(r'requests', RequestViewSet)
+router.register(r'directmessage', DMViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
